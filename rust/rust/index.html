@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://www.outlier.top/style.css">
+    <link rel="stylesheet" href="https://www.outlier.top/color/blue.css">
+
+        <link rel="stylesheet" href="https://www.outlier.top/color/background_pink.css">
+    
+    <link rel="stylesheet" href="https://www.outlier.top/font-hack.css">
+
+        <link rel="shortcut icon" type="image&#x2F;png" href="/favicon.png">
+    
+    </head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://www.outlier.top" style="text-decoration: none;">
+                    <div class="logo">
+                            Outlier
+                        </div>
+                </a>
+            </div>
+        </div>
+
+        
+    </header>
+    
+
+    <div class="content">
+        
+    <div class="post">
+        
+    <h1 class="post-title"><a href="https://www.outlier.top/rust/rust/">rust</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date"></span>
+
+    </div>
+
+    
+
+        
+        <div class="post-content">
+            <p>This is my rust</p>
+<h1 id="the-rust-programming-language">The Rust Programming Language</h1>
+<p>This is the main source code repository for <a href="https://www.rust-lang.org">Rust</a>. It contains the compiler,
+standard library, and documentation.</p>
+<p><strong>Note: this README is for <em>users</em> rather than <em>contributors</em>.
+If you wish to <em>contribute</em> to the compiler, you should read the
+<a href="https://rustc-dev-guide.rust-lang.org/getting-started.html">Getting Started</a> section of the rustc-dev-guide instead.</strong></p>
+<h2 id="quick-start">Quick Start</h2>
+<p>Read <a href="https://doc.rust-lang.org/book/ch01-01-installation.html">&quot;Installation&quot;</a> from <a href="https://doc.rust-lang.org/book/index.html">The Book</a>.</p>
+<h2 id="installing-from-source">Installing from Source</h2>
+<p>The Rust build system uses a Python script called <code>x.py</code> to build the compiler,
+which manages the bootstrapping process. It lives in the root of the project.</p>
+<p>The <code>x.py</code> command can be run directly on most systems in the following format:</p>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">./x.py </span><span>&lt;subcommand&gt; </span><span style="color:#b48ead;">[</span><span>flags</span><span style="color:#b48ead;">]
+</span></code></pre>
+<p>This is how the documentation and examples assume you are running <code>x.py</code>.</p>
+<p>Systems such as Ubuntu 20.04 LTS do not create the necessary <code>python</code> command by default when Python is installed that allows <code>x.py</code> to be run directly. In that case you can either create a symlink for <code>python</code> (Ubuntu provides the <code>python-is-python3</code> package for this), or run <code>x.py</code> using Python itself:</p>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#65737e;"># Python 3
+</span><span style="color:#bf616a;">python3</span><span> x.py &lt;subcommand&gt; </span><span style="color:#b48ead;">[</span><span>flags</span><span style="color:#b48ead;">]
+</span><span>
+</span><span style="color:#65737e;"># Python 2.7
+</span><span style="color:#bf616a;">python2.7</span><span> x.py &lt;subcommand&gt; </span><span style="color:#b48ead;">[</span><span>flags</span><span style="color:#b48ead;">]
+</span></code></pre>
+<p>More information about <code>x.py</code> can be found
+by running it with the <code>--help</code> flag or reading the <a href="https://rustc-dev-guide.rust-lang.org/building/how-to-build-and-run.html">rustc dev guide</a>.</p>
+<h3 id="building-on-a-unix-like-system">Building on a Unix-like system</h3>
+<ol>
+<li>
+<p>Make sure you have installed the dependencies:</p>
+<ul>
+<li><code>g++</code> 5.1 or later or <code>clang++</code> 3.5 or later</li>
+<li><code>python</code> 3 or 2.7</li>
+<li>GNU <code>make</code> 3.81 or later</li>
+<li><code>cmake</code> 3.13.4 or later</li>
+<li><code>ninja</code></li>
+<li><code>curl</code></li>
+<li><code>git</code></li>
+<li><code>ssl</code> which comes in <code>libssl-dev</code> or <code>openssl-devel</code></li>
+<li><code>pkg-config</code> if you are compiling on Linux and targeting Linux</li>
+</ul>
+</li>
+<li>
+<p>Clone the <a href="https://github.com/rust-lang/rust">source</a> with <code>git</code>:</p>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">git</span><span> clone https://github.com/rust-lang/rust.git
+</span><span style="color:#96b5b4;">cd</span><span> rust
+</span></code></pre>
+</li>
+</ol>
+<ol start="3">
+<li>
+<p>Configure the build settings:</p>
+<p>The Rust build system uses a file named <code>config.toml</code> in the root of the
+source tree to determine various configuration settings for the build.
+Copy the default <code>config.toml.example</code> to <code>config.toml</code> to get started.</p>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">cp</span><span> config.toml.example config.toml
+</span></code></pre>
+<p>If you plan to use <code>x.py install</code> to create an installation, it is recommended
+that you set the <code>prefix</code> value in the <code>[install]</code> section to a directory.</p>
+<p>Create install directory if you are not installing in default directory</p>
+</li>
+<li>
+<p>Build and install:</p>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">./x.py</span><span> build &amp;&amp; </span><span style="color:#bf616a;">./x.py</span><span> install
+</span></code></pre>
+<p>When complete, <code>./x.py install</code> will place several programs into
+<code>$PREFIX/bin</code>: <code>rustc</code>, the Rust compiler, and <code>rustdoc</code>, the
+API-documentation tool. This install does not include <a href="https://github.com/rust-lang/cargo">Cargo</a>,
+Rust's package manager. To build and install Cargo, you may
+run <code>./x.py install cargo</code> or set the <code>build.extended</code> key in
+<code>config.toml</code> to <code>true</code> to build and install all tools.</p>
+</li>
+</ol>
+<h3 id="building-on-windows">Building on Windows</h3>
+<p>There are two prominent ABIs in use on Windows: the native (MSVC) ABI used by
+Visual Studio, and the GNU ABI used by the GCC toolchain. Which version of Rust
+you need depends largely on what C/C++ libraries you want to interoperate with:
+for interop with software produced by Visual Studio use the MSVC build of Rust;
+for interop with GNU software built using the MinGW/MSYS2 toolchain use the GNU
+build.</p>
+<h4 id="mingw">MinGW</h4>
+<p><a href="https://www.msys2.org/">MSYS2</a> can be used to easily build Rust on Windows:</p>
+<ol>
+<li>
+<p>Grab the latest <a href="https://www.msys2.org/">MSYS2 installer</a> and go through the installer.</p>
+</li>
+<li>
+<p>Run <code>mingw32_shell.bat</code> or <code>mingw64_shell.bat</code> from wherever you installed
+MSYS2 (i.e. <code>C:\msys64</code>), depending on whether you want 32-bit or 64-bit
+Rust. (As of the latest version of MSYS2 you have to run <code>msys2_shell.cmd -mingw32</code> or <code>msys2_shell.cmd -mingw64</code> from the command line instead)</p>
+</li>
+<li>
+<p>From this terminal, install the required tools:</p>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#65737e;"># Update package mirrors (may be needed if you have a fresh install of MSYS2)
+</span><span style="color:#bf616a;">pacman -Sy</span><span> pacman-mirrors
+</span><span>
+</span><span style="color:#65737e;"># Install build tools needed for Rust. If you&#39;re building a 32-bit compiler,
+</span><span style="color:#65737e;"># then replace &quot;x86_64&quot; below with &quot;i686&quot;. If you&#39;ve already got git, python,
+</span><span style="color:#65737e;"># or CMake installed and in PATH you can remove them from this list. Note
+</span><span style="color:#65737e;"># that it is important that you do **not** use the &#39;python2&#39;, &#39;cmake&#39; and &#39;ninja&#39;
+</span><span style="color:#65737e;"># packages from the &#39;msys2&#39; subsystem. The build has historically been known
+</span><span style="color:#65737e;"># to fail with these packages.
+</span><span style="color:#bf616a;">pacman -S</span><span> git \
+</span><span>            make \
+</span><span>            diffutils \
+</span><span>            tar \
+</span><span>            mingw-w64-x86_64-python \
+</span><span>            mingw-w64-x86_64-cmake \
+</span><span>            mingw-w64-x86_64-gcc \
+</span><span>            mingw-w64-x86_64-ninja
+</span></code></pre>
+</li>
+<li>
+<p>Navigate to Rust's source code (or clone it), then build it:</p>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">./x.py</span><span> build &amp;&amp; </span><span style="color:#bf616a;">./x.py</span><span> install
+</span></code></pre>
+</li>
+</ol>
+<h4 id="msvc">MSVC</h4>
+<p>MSVC builds of Rust additionally require an installation of Visual Studio 2017
+(or later) so <code>rustc</code> can use its linker.  The simplest way is to get the
+<a href="https://visualstudio.microsoft.com/downloads/">Visual Studio</a>, check the “C++ build tools” and “Windows 10 SDK” workload.</p>
+<p>(If you're installing cmake yourself, be careful that “C++ CMake tools for
+Windows” doesn't get included under “Individual components”.)</p>
+<p>With these dependencies installed, you can build the compiler in a <code>cmd.exe</code>
+shell with:</p>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">python</span><span> x.py build
+</span></code></pre>
+<p>Currently, building Rust only works with some known versions of Visual Studio. If
+you have a more recent version installed and the build system doesn't understand,
+you may need to force rustbuild to use an older version. This can be done
+by manually calling the appropriate vcvars file before running the bootstrap.</p>
+<pre data-lang="batch" style="background-color:#2b303b;color:#c0c5ce;" class="language-batch "><code class="language-batch" data-lang="batch"><span>CALL &quot;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat&quot;
+</span><span>python x.py build
+</span></code></pre>
+<h4 id="specifying-an-abi">Specifying an ABI</h4>
+<p>Each specific ABI can also be used from either environment (for example, using
+the GNU ABI in PowerShell) by using an explicit build triple. The available
+Windows build triples are:</p>
+<ul>
+<li>GNU ABI (using GCC)
+<ul>
+<li><code>i686-pc-windows-gnu</code></li>
+<li><code>x86_64-pc-windows-gnu</code></li>
+</ul>
+</li>
+<li>The MSVC ABI
+<ul>
+<li><code>i686-pc-windows-msvc</code></li>
+<li><code>x86_64-pc-windows-msvc</code></li>
+</ul>
+</li>
+</ul>
+<p>The build triple can be specified by either specifying <code>--build=&lt;triple&gt;</code> when
+invoking <code>x.py</code> commands, or by copying the <code>config.toml</code> file (as described
+in <a href="https://www.outlier.top/rust/rust/#installing-from-source">Installing From Source</a>), and modifying the
+<code>build</code> option under the <code>[build]</code> section.</p>
+<h3 id="configure-and-make">Configure and Make</h3>
+<p>While it's not the recommended build system, this project also provides a
+configure script and makefile (the latter of which just invokes <code>x.py</code>).</p>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">./configure
+</span><span style="color:#bf616a;">make </span><span>&amp;&amp; </span><span style="color:#bf616a;">sudo</span><span> make install
+</span></code></pre>
+<p>When using the configure script, the generated <code>config.mk</code> file may override the
+<code>config.toml</code> file. To go back to the <code>config.toml</code> file, delete the generated
+<code>config.mk</code> file.</p>
+<h2 id="building-documentation">Building Documentation</h2>
+<p>If you’d like to build the documentation, it’s almost the same:</p>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">./x.py</span><span> doc
+</span></code></pre>
+<p>The generated documentation will appear under <code>doc</code> in the <code>build</code> directory for
+the ABI used. I.e., if the ABI was <code>x86_64-pc-windows-msvc</code>, the directory will be
+<code>build\x86_64-pc-windows-msvc\doc</code>.</p>
+<h2 id="notes">Notes</h2>
+<p>Since the Rust compiler is written in Rust, it must be built by a
+precompiled &quot;snapshot&quot; version of itself (made in an earlier stage of
+development). As such, source builds require a connection to the Internet, to
+fetch snapshots, and an OS that can execute the available snapshot binaries.</p>
+<p>Snapshot binaries are currently built and tested on several platforms:</p>
+<table><thead><tr><th>Platform / Architecture</th><th>x86</th><th>x86_64</th></tr></thead><tbody>
+<tr><td>Windows (7, 8, 10, ...)</td><td>✓</td><td>✓</td></tr>
+<tr><td>Linux (kernel 2.6.32, glibc 2.11 or later)</td><td>✓</td><td>✓</td></tr>
+<tr><td>macOS (10.7 Lion or later)</td><td>(*)</td><td>✓</td></tr>
+</tbody></table>
+<p>(*): Apple dropped support for running 32-bit binaries starting from macOS 10.15 and iOS 11.
+Due to this decision from Apple, the targets are no longer useful to our users.
+Please read <a href="https://blog.rust-lang.org/2020/01/03/reducing-support-for-32-bit-apple-targets.html">our blog post</a> for more info.</p>
+<p>You may find that other platforms work, but these are our officially
+supported build environments that are most likely to work.</p>
+<h2 id="getting-help">Getting Help</h2>
+<p>The Rust community congregates in a few places:</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/tagged/rust">Stack Overflow</a> - Direct questions about using the language.</li>
+<li><a href="https://users.rust-lang.org/">users.rust-lang.org</a> - General discussion and broader questions.</li>
+<li><a href="https://reddit.com/r/rust">/r/rust</a> - News and general discussion.</li>
+</ul>
+<h2 id="contributing">Contributing</h2>
+<p>If you are interested in contributing to the Rust project, please take a look
+at the <a href="https://rustc-dev-guide.rust-lang.org/getting-started.html">Getting Started</a> guide in the <a href="https://rustc-dev-guide.rust-lang.org">rustc-dev-guide</a>.</p>
+<h2 id="license">License</h2>
+<p>Rust is primarily distributed under the terms of both the MIT license
+and the Apache License (Version 2.0), with portions covered by various
+BSD-like licenses.</p>
+<p>See <a href="https://www.outlier.top/rust/rust/LICENSE-APACHE">LICENSE-APACHE</a>, <a href="https://www.outlier.top/rust/rust/LICENSE-MIT">LICENSE-MIT</a>, and
+<a href="https://www.outlier.top/rust/rust/COPYRIGHT">COPYRIGHT</a> for details.</p>
+<h2 id="trademark">Trademark</h2>
+<p><a href="https://foundation.rust-lang.org/">The Rust Foundation</a> owns and protects the Rust and Cargo
+trademarks and logos (the “Rust Trademarks”).</p>
+<p>If you want to use these names or brands, please read the <a href="https://www.rust-lang.org/policies/media-guide">media guide</a>.</p>
+<p>Third-party logos may be subject to third-party copyrights and trademarks. See
+<a href="https://www.rust-lang.org/policies/licenses">Licenses</a> for details.</p>
+
+        </div>
+
+        
+    </div>
+
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright copyright--user">Beijing&nbsp;<b>KeTaiRuiZheWoSi</b>&nbsp;Technology Co., Ltd.</div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>
