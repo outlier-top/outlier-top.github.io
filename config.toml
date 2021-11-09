@@ -1,6 +1,7 @@
 # The URL the site will be built for
 base_url = "https://outlier.top"
 
+theme = "terminimal"
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
@@ -14,3 +15,34 @@ highlight_code = true
 
 [extra]
 # Put all your custom variables here
+
+accent_color = "blue"
+background_color = "pink"
+# The logo text - defaults to "Terminimal theme"
+logo_text = "Outlier"
+
+# The logo link - defaults to base_url.
+# logo_home_link = "/take/me/away!"
+# author = "Beijing KeTaiRuiZheWoSi Technology Co., Ltd."
+author = "Beijing KeTaiRuiZheWoSi Technology Co., Ltd."
+copyright_html = "Beijing&nbsp;<b>KeTaiRuiZheWoSi</b>&nbsp;Technology Co., Ltd."
+favicon = "/favicon.png"
+favicon_mimetype = "image/png"
+
+# Whether to show links to earlier and later posts
+# on each post page (defaults to true).
+enable_post_view_navigation = true
+
+# The text shown at the bottom of a post,
+# before earlier/later post links.
+# Defaults to "Thanks for reading! Read other posts?"
+post_view_navigation_prompt = "Read more"
+
+taxonomies = [
+    {name = "tags"},
+]
+
+default_language = "en"
+use_full_hack_font = true
+
+post_view_navigation_prompt = "Thanks for reading! Read other posts?"
